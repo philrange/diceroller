@@ -1,0 +1,162 @@
+<html>
+<head>
+
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Dice Roller</title>
+
+<link rel="stylesheet" href="styles/main.css">
+
+	<script src="scripts/main.js"></script>
+
+	<script src="scripts/jquery-3.1.1.min.js"></script>
+	<script src="scripts/bootstrap.min.js"></script>
+
+
+	<link rel="stylesheet" href="styles/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/bootstrap-theme.min.css">
+
+</head>
+
+<body>
+
+<!-- navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+  <a class="navbar-brand" href="#">Dice Roller</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <!-- <li class="nav-item active"> -->
+<!--       <li class="nav-item">
+        <a class="nav-link" href="#" onClick='instructions()'>Instructions</a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" href="#" onClick='about()'>About</a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>
+
+
+<!-- input buttons -->
+<div id="input-container" class="container">
+		
+	<div class="input-group mb-3">
+		<div class="input-group-prepend">
+	    	<span class="input-group-text" for="numberOfDice">Number of Dice</span>
+	  	</div>
+		<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" disabled="disabled" 
+			data-type="minus" data-field="numberOfDice">
+				<!-- <span class="glyphicon glyphicon-minus"></span> -->-
+			</button>
+		</span>
+		<input type="text" id="numberOfDice" name="numberOfDice" class="form-control input-number" value="10" min="1">
+		<span class="input-group-btn">
+			<button type="button" class="btn btn-default btn-number" data-type="plus" data-field="numberOfDice">
+				<!-- <span class="glyphicon glyphicon-plus"></span> -->+
+			</button>
+		</span>
+	</div>
+
+
+	<div class="input-group mb-3">
+	  	<div class="input-group-prepend">
+	    	<span class="input-group-text" for="successOn">Success On</span>
+	  	</div>
+  		<select class="custom-select" id="successOn">
+    		<option selected>Choose...</option>
+    		<option value="1">1</option>
+    		<option value="2">2</option>
+    		<option value="3">3</option>
+    		<option value="4">4</option>
+    		<option value="5">5</option>
+    		<option value="6">6</option>
+  		</select>
+  		<div class="input-group-append">
+	    	<span class="input-group-text" for="successOn">+</span>
+	  	</div>
+	</div>
+
+	<div class="input-group mb-3">
+	  	<div class="input-group-prepend">
+	    	<span class="input-group-text" for="canReroll">Can Reroll</span>
+	  	</div>
+  		<select class="custom-select" id="canReroll">
+    		<option value="0" selected>No</option>
+    		<option value="-1">Reroll failures</option>
+    		<option value="1">1s</option>
+    		<option value="2">2s or lower</option>
+    		<option value="3">3s or lower</option>
+    		<option value="4">4s or lower</option>
+    		<option value="5">5s or lower</option>
+    		<option value="6">6s or lower</option>
+  		</select>
+	</div>
+
+	
+	<div class="btn-group" role="group" aria-label="buttons">
+		<button type="button" class="btn btn-secondary" onclick="clearResults()">
+			Clear
+		</button>
+
+		<button type="button" class="btn btn-primary" onclick="go()">
+			Roll
+		</button>
+	</div>
+</div>
+
+<!-- main page -->
+<div class="container">
+
+	<div id='result-container'>
+		Successes: <span id="successes">0</span>
+		Can reroll: <span id="rerolls">0</span>
+		<button type="button" class="btn btn-primary" onclick="reroll()" id="rerollButton" disabled>
+			Reroll
+		</button>
+	</div>
+
+	<div id='dice-container' class='dice-rolls'>
+		<span id="rolledDice"></span>
+	</div>	
+
+	<div id='rerolled-dice-container' class='dice-rolls'>
+		<span id="rerolledDice"></span>
+	</div>	
+
+
+	<div>
+		<span id="debug"></span>
+	</div>
+
+</div>
+
+
+	<div class="modal fade bs-example-modal-sm" id="aboutModal" tabindex="-1" role="dialog">
+	  <div class="modal-dialog modal-sm">
+	    <div class="modal-content">
+			<div class="modal-header" style="background-color: brown; color: white">
+			    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			    <h4 class="modal-title" id="myModalLabel3">About</h4>
+			</div>
+	   		<div class="modal-body">
+	   		hello
+			<!-- 	<p>
+	   			This site was inspired by a forum post about some sort of cheat sheet to help remember to use all your rules. As a forgetful man, and a programmer, it seemed an obvious project to learn how to build a website.</p>
+
+	   			<p>I'm not a professional web designer though, so any thoughts, comments, suggestions, bugs, etc. are welcome. Please get in touch <b>diceroller@gmail.com</b></p> -->
+
+	       	</div>
+	    </div>
+	  </div>
+	</div>
+
+</body>
+</html>
