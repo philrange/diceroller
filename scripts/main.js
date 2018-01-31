@@ -76,7 +76,7 @@ function reroll() {
 
 function getDelay(n) {
 	console.log("hello");
-	delay = startingDelay * Math.pow(0.98, n);
+	delay = startingDelay * Math.pow(0.95, n);
 	console.log(delay);
 	return delay;
 }
